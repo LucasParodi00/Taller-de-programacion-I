@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 Use App\Models\Productos_model;
- 
+  
 
 class Productos_Controllers extends baseController{
 

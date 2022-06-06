@@ -51,33 +51,36 @@ $routes->get('/comercializacion', 'Home::comercializacion');
 $routes->get("/login", "Usuario_controller::login");
 $routes->post("/login", "Usuario_controller::validaciones");
 
+$routes ->group("/", ['filter'=> 'admi'], function($routes){
+    //-----------------------------------------------
+        //rutas para las acciones
+    $routes->get("/panel", "Usuario_controller::panel");
+    $routes->get("/restaurar/(:num)", 'Usuario_Controller::restaurar/$1');
+    $routes->get("/borrar/(:num)", 'Usuario_Controller::borrar/$1');
+    $routes->get("/editar/(:num)", "Usuario_controller::editar/$1");
+    $routes->get("/usuariosEliminados", "Usuario_controller::panelEliminados");
+    $routes->post('/actualizar', 'Usuario_controller::actualizar');
 
-//-----------------------------------------------
-    //rutas para las acciones
-$routes->get("/panel", "Usuario_controller::panel");
-$routes->get("/restaurar/(:num)", 'Usuario_Controller::restaurar/$1');
-$routes->get("/borrar/(:num)", 'Usuario_Controller::borrar/$1');
-$routes->get("/editar/(:num)", "Usuario_controller::editar/$1");
-$routes->get("/usuariosEliminados", "Usuario_controller::panelEliminados");
-$routes->post('/actualizar', 'Usuario_controller::actualizar');
 
+    $routes->get('/registro2', 'Usuario_controller::newUsuario');
+    $routes->post('/registro2', 'Usuario_controller::create2');
+    //-----------------------------------------------
 
-$routes->get('/registro2', 'Usuario_controller::newUsuario');
-$routes->post('/registro2', 'Usuario_controller::create2');
-//-----------------------------------------------
+        //PRODUCTOS
+    //---------------------------------------
+    $routes->get('/panelProductos', 'Productos_Controllers::panelProductos');
+    $routes->get('/cargaProductos', 'Productos_Controllers::new');
+    $routes->post('/cargaProductos', 'Productos_Controllers::create');
+    $routes->get('/productosEliminados', 'Productos_Controllers::panelEliminados');
+    $routes->get("/restaurarProducto/(:num)", 'Productos_controllers::restaurar/$1');
 
-    //PRODUCTOS
-//---------------------------------------
-$routes->get('/panelProductos', 'Productos_Controllers::panelProductos');
-$routes->get('/cargaProductos', 'Productos_Controllers::new');
-$routes->post('/cargaProductos', 'Productos_Controllers::create');
-$routes->get('/productosEliminados', 'Productos_Controllers::panelEliminados');
-$routes->get("/restaurarProducto/(:num)", 'Productos_controllers::restaurar/$1');
+    $routes->get("/borrarProducto/(:num)", 'Productos_Controllers::borrar/$1');
+    $routes->get("/editarProducto/(:num)", "Productos_Controllers::editar/$1");
+    $routes->post('/actualizarProducto', 'Productos_Controllers::actualizar');
 
-$routes->get("/borrarProducto/(:num)", 'Productos_Controllers::borrar/$1');
-$routes->get("/editarProducto/(:num)", "Productos_Controllers::editar/$1");
-$routes->post('/actualizarProducto', 'Productos_Controllers::actualizar');
-
+    //-------------------------------------------------------
+    $routes ->get("/panelAdministrador", "panelControllers::panelDeCotrol");
+});
 
 /*
  * --------------------------------------------------------------------

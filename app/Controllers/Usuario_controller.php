@@ -9,14 +9,11 @@ class Usuario_controller extends baseController{
         $this -> UsuariosModel = new Usuarios_model();   
         
     }
-
+ 
     public function panel(){
         $data ['titulo']='Vegetarian :: Panel de Usuario';
         echo view('head',$data);
        
-      
-       
-
         $usuario = new Usuarios_model();
         $datos['usuarios']= $usuario -> orderBy('id','ASC') -> findAll();
         return view('back/panel', $datos);
@@ -196,7 +193,6 @@ class Usuario_controller extends baseController{
             $datosUsuario = $this -> UsuariosModel -> where ('perfil_id', $usuario)->first(); 
             //$datos['usuario']=$usuario->where('id',$id)->first();
             //$usuario = new Usuarios_model();
-            print_r($datosUsuario);
             if ($datosUsuario != null){
                 
                 if (password_verify($password, $datosUsuario['password'])){

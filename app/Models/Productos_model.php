@@ -9,3 +9,8 @@ class Productos_model extends Model{
     protected $primaryKey = 'id';
     protected $allowedFields = ['stock', 'nombreProducto', 'descripcion', 'precio', 'seccion', 'baja'];
 } 
+
+
+
+
+

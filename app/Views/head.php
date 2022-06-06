@@ -40,7 +40,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/panel.css')?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/registro2.css')?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/productosBack.css')?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/navegador-admi.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/panelAdministrador.css')?>">
     <!-- JS-->
 
     <script id="scrip" type="text/javascript">
