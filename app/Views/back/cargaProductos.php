@@ -7,7 +7,7 @@
 
 
 <div class="containerProductos">
-    <div class="tituloIngresoProducto">
+    <div class="tituloIngresoProducto"> 
         <h1>INGRESO DE PRODUCTOS A LA BASE DE DATOS</h1>
     </div>
 

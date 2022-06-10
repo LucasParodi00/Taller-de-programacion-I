@@ -51,7 +51,7 @@ $routes->get('/comercializacion', 'Home::comercializacion');
 $routes->get("/login", "Usuario_controller::login");
 $routes->post("/login", "Usuario_controller::validaciones");
 
-$routes ->group("/", ['filter'=> 'admi'], function($routes){
+$routes ->group("/", ['filter' => 'admi'], function($routes){
     //-----------------------------------------------
         //rutas para las acciones
     $routes->get("/panel", "Usuario_controller::panel");
@@ -82,6 +82,11 @@ $routes ->group("/", ['filter'=> 'admi'], function($routes){
     $routes ->get("/panelAdministrador", "panelControllers::panelDeCotrol");
 });
 
+$routes ->get('/carrito', 'Carrito_Controller::verCarrito');
+$routes ->post('/carrito', 'Carrito_Controller::verCarrito');
+
+$routes ->post ('/agregar_carrito', 'Carrito_Controller::agregar_carrito');
+$routes ->get ('/agregar_carrito', 'Carrito_Controller::agregar_carrito');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -23,6 +23,11 @@
                     <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('index') ?>">Inicio</a>
                     </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link" href="<?php echo base_url('productos') ?>">Productos</a>
+                    </li>
+                    
                     <li class="nav-item">
                           <a class="nav-link" href="<?php echo base_url('panel') ?>">PanelUsuarios</a>
                     </li>
@@ -99,6 +104,10 @@
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('comercializacion') ?>">Comercializacion</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="<?php echo base_url('carrito') ?>">Carrito</a>
                     </li>
 
                     <!-- condicion php -->

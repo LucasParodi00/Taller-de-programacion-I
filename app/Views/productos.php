@@ -169,14 +169,20 @@
                                     <b> - <?php echo $producto['nombreProducto']?> - </b>
                                     <i> <?php echo $producto['descripcion']?> -----------> $<?php echo $producto['precio']?></i>
                                     <div> 
-                                        <img src="assets/img/iconos/carrito-compras.svg" alt="">
+                                    
+                                    <?php if(session()->logueado == 'true' && session()->rango == 1){
+                                        helper('form');
+                                        echo form_open('Carrito_Controller/agregar_carrito', "id= 'jq'");
+                                        echo form_hidden('id', $producto['id']);
+                                        echo form_hidden('nombre', $producto['nombreProducto']);
+                                        echo form_hidden('precio', $producto['precio']);
+                                        echo form_submit('agregar_carrito', 'Agregar al carrito', "class='btn btn-outline-info btn4' "); 
+                                        echo form_close();
+                                    } ?>
                                     </div>
                                 </div> 
                             <?php } ?>
                         <?php endforeach ?> 
-
-                            
-
                         </div>
                     </div>
                 </div>
@@ -195,7 +201,17 @@
                                         <b> - <?php echo $producto['nombreProducto']?> - </b>
                                         <i> <?php echo $producto['descripcion']?> -----------> $<?php echo $producto['precio']?></i>
                                         <div>
-                                            <img src="assets/img/iconos/carrito-compras.svg" alt="">
+                                           
+                                        <?php if(session()->logueado == 'true' && session()->rango == 1){
+                                            helper('form');
+                                            echo form_open('Carrito_Controller/agregar_carrito', "id= 'jq'");
+                                            echo form_hidden('id', $producto['id']);
+                                            echo form_hidden('nombre', $producto['nombreProducto']);
+                                            echo form_hidden('precio', $producto['precio']);
+                                            echo form_submit('agregar_carrito', 'Agregar al carrito', "class='btn btn-outline-info btn4' "); 
+                                            echo form_close();
+                                        } ?>
+
                                         </div>
                                     </div> 
                                 <?php } ?>
@@ -218,7 +234,17 @@
                                         <b> - <?php echo $producto['nombreProducto']?> - </b>
                                         <i> <?php echo $producto['descripcion']?> -----------> $<?php echo $producto['precio']?></i>
                                         <div>
-                                            <img src="assets/img/iconos/carrito-compras.svg" alt="">
+
+                                        <?php if(session()->logueado == 'true' && session()->rango == 1){
+                                            helper('form');
+                                            echo form_open('Carrito_Controller/agregar_carrito', "id= 'jq'");
+                                            echo form_hidden('id', $producto['id']);
+                                            echo form_hidden('nombre', $producto['nombreProducto']);
+                                            echo form_hidden('precio', $producto['precio']);
+                                            echo form_submit('agregar_carrito', 'Agregar al carrito', "class='btn btn-outline-info btn4' "); 
+                                            echo form_close();
+                                        } ?>
+
                                         </div>
                                     </div> 
                                 <?php } ?>
@@ -243,7 +269,17 @@
                                         <b> - <?php echo $producto['nombreProducto']?> - </b>
                                         <i> <?php echo $producto['descripcion']?> -----------> $<?php echo $producto['precio']?></i>
                                         <div>
-                                            <img src="assets/img/iconos/carrito-compras.svg" alt="">
+                                            
+                                        <?php if(session()->logueado == 'true' && session()->rango == 1){
+                                            helper('form');
+                                            echo form_open('Carrito_Controller/agregar_carrito', "id= 'jq'");
+                                            echo form_hidden('id', $producto['id']);
+                                            echo form_hidden('nombre', $producto['nombreProducto']);
+                                            echo form_hidden('precio', $producto['precio']);
+                                            echo form_submit('agregar_carrito', 'Agregar al carrito', "class='btn btn-outline-info btn4' "); 
+                                            echo form_close();
+                                        } ?>
+
                                         </div>
                                     </div> 
                                 <?php } ?>
@@ -269,7 +305,25 @@
                                         <b> - <?php echo $producto['nombreProducto']?> - </b>
                                         <i> <?php echo $producto['descripcion']?> -----------> $<?php echo $producto['precio']?></i>
                                         <div>
-                                            <img src="assets/img/iconos/carrito-compras.svg" alt="">
+                                            
+                                        <?php if(session()->logueado == 'true' && session()->rango == 1){
+                                            echo "<form action=''>
+
+
+                                                  </form>";
+                                            
+                                            
+                                            
+                                            
+                                            helper('form');
+                                            echo form_open('Carrito_Controller/agregar_carrito' , "id= 'jq'");
+                                            echo form_hidden('id', $producto['id']);
+                                            echo form_hidden('nombre', $producto['nombreProducto']);
+                                            echo form_hidden('precio', $producto['precio']);
+                                            echo form_submit('agregar_carrito', 'Agregar al carrito', "class='btn btn-outline-info btn4' "); 
+                                            echo form_close();
+                                        } ?>
+
                                         </div>
                                     </div> 
                                 <?php } ?>
@@ -296,7 +350,17 @@
                                         <b> - <?php echo $producto['nombreProducto']?> - </b>
                                         <i> <?php echo $producto['descripcion']?> -----------> $<?php echo $producto['precio']?></i>
                                         <div>
-                                            <img src="assets/img/iconos/carrito-compras.svg" alt="">
+
+                                        <?php if(session()->logueado == 'true' && session()->rango == 1){
+                                            helper('form');
+                                            echo form_open('Carrito_Controller/agregar_carrito', "id= 'jq'");
+                                            echo form_hidden('id', $producto['id']);
+                                            echo form_hidden('nombre', $producto['nombreProducto']);
+                                            echo form_hidden('precio', $producto['precio']);
+                                            echo form_submit('agregar_carrito', 'Agregar al carrito', "class='btn btn-outline-info btn4' "); 
+                                            echo form_close();
+                                        } ?>
+
                                         </div>
                                     </div> 
                                 <?php } ?>
@@ -342,38 +406,18 @@
         </div>
    </div>
 
+<script src="assets/js/jquery.min.js"> </script>
 
+<script>
 
+const button = document.getElementById('jq')
 
+button.addEventListener('click', ()=>{
 
-                <!-- <div class="boton-modal">
+    const newPost = {
+        title: 'a new post',
+        body 
+    }
 
-                    <label for="btn-modal">
-                        Medios de Pago y Envio
-                    </label>
-                </div>
-                <input type="checkbox" id="btn-modal">
-                <div class="container-modal">
-                    <div class="content-modal">
-                        <h2>FORMAS DE PAGO</h2>
-                        <p>Mercado Pago</p>
-                        <p>Transferencia Bancaria</p>
-                        <p>Efectivo</p>
-
-                        <h2>FORMAS DE ENVIO</h2>
-                        <p>Retiro en el Local</p>
-                        <p>Motomandado</p>
-                        <p>Transporte a Cargo del Cliente</p>
-                        <p><i><b>Aclaracion:</b> Envios al interior a Cargo del Cliente</i></p>
-                        <div class="btn-cerrar">
-                            <label for="btn-modal">Cerrar</label>
-                        </div>
-                    </div>
-                    <label for="btn-modal" class="cerrar-modal"></label>
-                </div> -->
-
-
-
-
-
-
+})
+</script>

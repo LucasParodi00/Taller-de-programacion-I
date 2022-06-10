@@ -6,8 +6,8 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class Admi implements FilterInterface
-{
+class Admi implements FilterInterface{
+    
     public function before(RequestInterface $request, $arguments = null)
     {
         
