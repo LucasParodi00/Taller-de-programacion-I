@@ -41,7 +41,7 @@ class Carrito_Controller extends BaseController{
 
         $cart ->remove($rowid);
 
-        return redirect()->route('verCarrito');
+        return redirect()->route('carrito');
 
         //id = id del producto
         //rowid = fila del producto
@@ -52,8 +52,32 @@ class Carrito_Controller extends BaseController{
 
         $cart->destroy();
 
-        return redirect()->route('verCarrito');
+        return redirect()->route('carrito');
 
+    }
+
+    public function sumar_carrito(){
+        $cart = \Config\Services::cart();
+        $cantidad = $cart->getItem($this->request->getGet("id"))["qty"];
+        //var_dump($cart->);
+        $cart->update(array(
+            "rowid" => $this->request->getGet("id"),
+            "qty" => $cantidad+1
+        ));
+        return redirect()->route('carrito');
+    }
+
+    public function restar_carrito(){
+        $cart = \Config\Services::cart();
+        $cantidad = $cart->getItem($this->request->getGet("id"))["qty"];
+        //var_dump($cart->); 
+        if($cantidad > 1){ 
+            $cart->update(array(
+                "rowid" => $this->request->getGet("id"),
+                "qty" => $cantidad-1
+            ));
+        }
+        return redirect()->route('carrito');
     }
 
 

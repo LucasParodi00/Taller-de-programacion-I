@@ -43,7 +43,7 @@ class Usuario_controller extends baseController{
         return view('back/editarUsuario', $datos);
     }
 
-    public function actualizar (){
+    public function actualizar (){ 
 
         $data['titulo']='Vegetarian :: Editar Usuario';
         echo view('head',$data);
@@ -119,7 +119,7 @@ class Usuario_controller extends baseController{
         $usuarios = new Usuarios_model();
         
         if ($this->validate('registro')){
-            $usuarios -> insert (
+            $usuarios -> insert ( 
                 [
                     'cuit' => $this->request->getPost('cuit'),
                     'nombreyapellido' => $this->request->getPost('nomyape'),

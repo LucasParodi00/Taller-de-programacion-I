@@ -59,8 +59,8 @@
                                         }
                                     }
                                 </script>
-                                <a class="btn btn-danger" id="botonEliminarP" href="<?=base_url('borrar/'.$usuario['id']);?>" class="botonEliminar" type="button" onclick="return ConfirmDelete()">Eliminar</a>
-                                <a class="btn btn-success" href="<?=base_url('editar/'.$usuario['id']);?>" class="botonEliminar" type="button" >Editar</a>
+                                <a class="btn btn-danger pt-0 text-center" id="botonEliminarP" href="<?=base_url('borrar/'.$usuario['id']);?>" class="botonEliminar" type="button" onclick="return ConfirmDelete()">Eliminar</a>
+                                <a class="btn btn-success pt-0 text-center" href="<?=base_url('editar/'.$usuario['id']);?>" class="botonEliminar" type="button" >Editar</a>
 
                             </td>
                         </tr>

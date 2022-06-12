@@ -33,7 +33,7 @@
                 <tbody>
                     
                     <?php foreach ($productos as $producto) : 
-                            if($producto['baja']== null){ ?>
+                            if($producto['baja']== null && $producto['seccion']!== 'Combos'){ ?>
                         <tr>
                             <td> <?= $producto['id']?> </td>
                             <td> <?= $producto['nombreProducto'] ?> </td>
@@ -43,8 +43,47 @@
                             <td> <?= $producto['precio'] ?> </td>
                             <td>
 
-                                <a class="btn btn-danger" href="<?=base_url('borrarProducto/'.$producto['id']);?>" class="botonEliminar" type="button" onclick="return ConfirmDelete()">Eliminar</a>
-                                <a class="btn btn-success" href="<?=base_url('editarProducto/'.$producto['id']);?>" class="botonEliminar" type="button">Editar</a>
+                                <a class="btn btn-danger pt-0 text-center" href="<?=base_url('borrarProducto/'.$producto['id']);?>" class="botonEliminar" type="button" onclick="return ConfirmDelete()">Eliminar</a>
+                                <a class="btn btn-warning pt-0 text-center" href="<?=base_url('editarProducto/'.$producto['id']);?>" class="botonEliminar" type="button">Editar</a>
+
+                            </td>
+                        </tr>
+                    <?php } endforeach ?>    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="panel mt-4">
+            <span class="spanPanel"></span>
+            <br>
+            <h2 style="color: #ffffff"> COMBOS </h2>
+            <table class="table ">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Producto</th>
+                    <th>Descripcion</th>
+                    <th>Seccion</th>
+                    <th>Stock</th>
+                    <th>Precio</th> 
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                    
+                    <?php foreach ($productos as $producto) : 
+                            if($producto['baja']== null && $producto ['seccion'] == 'Combos'){ ?>
+                        <tr>
+                            <td> <?= $producto['id']?> </td>
+                            <td> <?= $producto['nombreProducto'] ?> </td>
+                            <td> <?= $producto['descripcion'] ?> </td>
+                            <td> <?= $producto['seccion'] ?> </td>
+                            <td> <?= $producto['stock'] ?> </td>
+                            <td> <?= $producto['precio'] ?> </td>
+                            <td>
+
+                                <a class="btn btn-danger pt-0 text-center" href="<?=base_url('borrarProducto/'.$producto['id']);?>" class="botonEliminar" type="button" onclick="return ConfirmDelete()">Eliminar</a>
+                                <a class="btn btn-warning pt-0 text-center" href="<?=base_url('editarProducto/'.$producto['id']);?>" class="botonEliminar" type="button">Editar</a>
 
                             </td>
                         </tr>

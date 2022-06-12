@@ -54,7 +54,7 @@ $routes->post("/login", "Usuario_controller::validaciones");
 $routes ->group("/", ['filter' => 'admi'], function($routes){
     //-----------------------------------------------
         //rutas para las acciones
-    $routes->get("/panel", "Usuario_controller::panel");
+    $routes->get("/panel", "Usuario_controller::panel"); 
     $routes->get("/restaurar/(:num)", 'Usuario_Controller::restaurar/$1');
     $routes->get("/borrar/(:num)", 'Usuario_Controller::borrar/$1');
     $routes->get("/editar/(:num)", "Usuario_controller::editar/$1");
@@ -87,6 +87,14 @@ $routes ->post('/carrito', 'Carrito_Controller::verCarrito');
 
 $routes ->post ('/agregar_carrito', 'Carrito_Controller::agregar_carrito');
 $routes ->get ('/agregar_carrito', 'Carrito_Controller::agregar_carrito');
+
+$routes ->get ('/vaciarCarrito', 'Carrito_Controller::vaciarCarrito' );
+
+$routes ->get ('/eliminarCarrito', 'Carrito_Controller::eliminarCarrito' );
+
+
+$routes->get('sumar_carrito', 'Carrito_controller::sumar_carrito');
+$routes->get('restar_carrito', 'Carrito_controller::restar_carrito');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

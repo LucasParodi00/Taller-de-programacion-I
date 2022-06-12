@@ -21,7 +21,8 @@
 
     <div class="contenedorImput">
         <label for="descripcion">Descipcion</label>
-        <input type="text" placeholder="Descipcion" name="descripcion" value="<?=$productos['descripcion'] ?>">
+        <textarea style="border-radius: 10px" name="descripcion" placeholder="Descripcion del producto o combo"  cols="136" rows="2" value="<?= old('descripcion') ?>"></textarea>
+        
     </div>
 
     <div class="contenedorImput">
