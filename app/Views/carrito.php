@@ -62,7 +62,7 @@
                 <div class="totalcompra">
                 <h4>Total de compra: $ <?php echo $total ?> </h4>
                 <br>
-                <h4 class="text-center"><a href="" class="btn btn-success">Confirmar compra</a> </h4>
+            <h4 class="text-center"><a href=" <?php echo base_url('comprar')?>" class="btn btn-success">Confirmar compra</a> </h4>
                 </div>
         </div>
     </div>

@@ -4,7 +4,7 @@ use CodeIgniter\Controller;
 use App\Models\Productos_model;
 use App\Models\Usuarios_model;
 use App\Models\VentaDetalle_Model;
-
+use App\Models\Ventas_Model;
 
 
 
@@ -87,20 +87,41 @@ class Carrito_Controller extends BaseController{
 
     public function comprar (){
 
-        $detalleVenta = new VentaDetalle_Model();
+        $ventasModel = new Ventas_Model();
+        
+        $cart = \Config\Services::cart();
+        
+        $descripcion = '';
+
+        foreach ($cart->contents() as $ventas){
+            $descripcion = $descripcion. "producto: " .$ventas ['name'] . " cantidad: " .$ventas ['qty'] . " SubTotal: ". $ventas['subtotal']   ."</br>";    
+        }
+
+        $datos = [
+            'descripcion_venta' => $descripcion,
+            'email_usuario'     => session('email'),
+            'precio_total'      => $cart -> total(),
+        ];
+        
+        $ventasModel -> insert($datos);
+
+        return redirect()->route('vaciarCarrito');
+        
+    }
+
+    public function verVentas(){
 
         $cart = \Config\Services::cart();
-        var_dump($cart->contents(['price']));
 
-        $detalleVenta -> insert(array(
-            'precio'  => $cart->getItem($this->request->getGet()) ['price'],
+        $ventasModel = new Ventas_Model();
 
-          
-        ));
+        $ventas = array('ventas' => $ventasModel->findAll());
+        $data['titulo'] = 'Detalles de Ventas';
 
-
+        return view('head',$data). view('navegador') .view('back/carrito/verVentas', $ventas);
 
     }
+
 
 
 }

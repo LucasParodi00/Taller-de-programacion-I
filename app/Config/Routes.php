@@ -105,7 +105,7 @@ $routes->get('/contacto', 'Consulta_Controller::contacto');
 $routes->get('cargarConsulta', 'Consulta_Controller::new');
 $routes->post('cargarConsulta', 'Consulta_Controller::cargarConsulta');
 
-
+$routes->get('detallesVentas', 'Carrito_Controller::verVentas');
 
 
 

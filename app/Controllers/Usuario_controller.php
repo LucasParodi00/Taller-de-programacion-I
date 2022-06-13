@@ -14,7 +14,7 @@ class Usuario_controller extends baseController{
         $data ['titulo']='Vegetarian :: Panel de Usuario';
         echo view('head',$data);
        
-        $usuario = new Usuarios_model();
+        $usuario = new Usuarios_model(); 
         $datos['usuarios']= $usuario -> orderBy('id','ASC') -> findAll();
         return view('back/panel', $datos);
     }
