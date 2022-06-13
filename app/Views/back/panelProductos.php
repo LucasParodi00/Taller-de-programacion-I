@@ -22,7 +22,7 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Producto</th>
+                    <th>Producto</th> 
                     <th>Descripcion</th>
                     <th>Seccion</th>
                     <th>Stock</th>

@@ -79,6 +79,60 @@ class Validation
             ]
         ],
      ];
+
+     public $reglasConsulta =[
+        
+        'nombrecompleto' => [
+            'rules' => 'required',
+            'errors' =>[
+                'required' =>'El campo {field} es obligatorio',
+                
+            ]
+        ],
+
+        'email' => [
+            'rules' => 'required ',
+            'errors' =>[
+                'required' =>'El campo {field} es obligatorio',     
+                
+            ]
+        ],
+
+        'telefono' => [
+            'rules' => 'required ',
+            'errors' =>[
+                'required' =>'El campo {field} es obligatorio',     
+                
+            ]
+        ],
+
+        'asunto' => [
+            'rules' => 'required ',
+            'errors' =>[
+                'required' =>'El campo {field} es obligatorio',     
+                
+            ]
+            ],
+
+        'mensaje' => [
+            'rules' => 'required ',
+            'errors' =>[
+                'required' =>'El campo {field} es obligatorio',     
+                
+            ]
+        ]
+     ];
+
+     public $reglasConsulta2 =[
+        'nombreCompleto' => [
+            'rules' => 'required',
+            'errors' =>[
+                'required' =>'El campo {field} es obligatorio'                
+            ]
+        ],
+
+        
+     ];
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------

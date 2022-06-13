@@ -35,10 +35,10 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/index', 'Home::index');
-$routes->get('/contacto', 'Home::contacto'); 
+
 $routes->get('/productos', 'Productos_Controllers::mostrarProductos');
 $routes->get('/nosotros', 'Home::nosotros');
-$routes->get('/contacto', 'Home::contacto');
+
 $routes->get('/sesion', 'Home::sesion');
 $routes->get('/registro', 'Usuario_controller::new');
 $routes->post('/registro', 'Usuario_controller::create');
@@ -78,23 +78,37 @@ $routes ->group("/", ['filter' => 'admi'], function($routes){
     $routes->get("/editarProducto/(:num)", "Productos_Controllers::editar/$1");
     $routes->post('/actualizarProducto', 'Productos_Controllers::actualizar');
 
+    $routes->get('cargarImagen', 'Productos_Controllers::index');
+    $routes->post('cargarImagen', 'Productos_Controllers::uploadImage');
+
     //-------------------------------------------------------
     $routes ->get("/panelAdministrador", "panelControllers::panelDeCotrol");
+
+    $routes->get('consultas', 'Consulta_Controller::listarConsultas');
+    $routes->get('contestados', 'Consulta_Controller::contestados');
+    $routes->get("/contestarConsulta/(:num)", 'Consulta_Controller::borrar/$1');
+    
 });
 
 $routes ->get('/carrito', 'Carrito_Controller::verCarrito');
 $routes ->post('/carrito', 'Carrito_Controller::verCarrito');
-
 $routes ->post ('/agregar_carrito', 'Carrito_Controller::agregar_carrito');
 $routes ->get ('/agregar_carrito', 'Carrito_Controller::agregar_carrito');
-
 $routes ->get ('/vaciarCarrito', 'Carrito_Controller::vaciarCarrito' );
-
 $routes ->get ('/eliminarCarrito', 'Carrito_Controller::eliminarCarrito' );
-
-
 $routes->get('sumar_carrito', 'Carrito_controller::sumar_carrito');
 $routes->get('restar_carrito', 'Carrito_controller::restar_carrito');
+
+$routes->get('comprar', 'Carrito_controller::comprar');
+
+$routes->get('/contacto', 'Consulta_Controller::contacto'); 
+$routes->get('cargarConsulta', 'Consulta_Controller::new');
+$routes->post('cargarConsulta', 'Consulta_Controller::cargarConsulta');
+
+
+
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

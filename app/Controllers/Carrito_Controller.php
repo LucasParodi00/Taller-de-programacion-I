@@ -2,6 +2,11 @@
 namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\Productos_model;
+use App\Models\Usuarios_model;
+use App\Models\VentaDetalle_Model;
+
+
+
 
 
 class Carrito_Controller extends BaseController{
@@ -80,6 +85,22 @@ class Carrito_Controller extends BaseController{
         return redirect()->route('carrito');
     }
 
+    public function comprar (){
+
+        $detalleVenta = new VentaDetalle_Model();
+
+        $cart = \Config\Services::cart();
+        var_dump($cart->contents(['price']));
+
+        $detalleVenta -> insert(array(
+            'precio'  => $cart->getItem($this->request->getGet()) ['price'],
+
+          
+        ));
+
+
+
+    }
 
 
 }

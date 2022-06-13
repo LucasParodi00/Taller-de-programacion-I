@@ -18,39 +18,45 @@
 
         <div class="contenedorImput">
             <label for="Productos">CUIT</label>
-            <input type="number"placeholder="CUIT"  name="cuit" value="<?=$usuario['cuit'] ?>"> 
+            <input type="number"placeholder="CUIT"  readonly name="cuit" value="<?=$usuario['cuit'] ?>"> 
         </div>
 
         <div class="contenedorImput">
             <label for="Seccion">Usuario</label>
-            <input type="text" placeholder="Nombre de Usuario" name="usuario" value="<?=$usuario['perfil_id'] ?>">  
+            <input type="text" placeholder="Nombre de Usuario" readonly name="usuario" value="<?=$usuario['perfil_id'] ?>">  
         </div>
 
         <div class="contenedorImput">
             <label for="descripcion">Nombre y Apellido</label>
-            <input type="text" placeholder="Nombre y Apellido" name="nomyape" value="<?=$usuario['nombreyapellido'] ?>" > 
+            <input type="text" placeholder="Nombre y Apellido" readonly name="nomyape" value="<?=$usuario['nombreyapellido'] ?>" > 
         </div>
 
         <div class="contenedorImput">
             <label for="Precio">Correo Electronico</label>
-            <input type="text" placeholder="Correo Electronico" name="email" value="<?=$usuario['email'] ?>">  
-        </div>
-
-        <div class="contenedorImput">
-            <label for="Precio">Contraseña</label>
-            <input type="password" placeholder="Contraseña" name="password" value="<?=$usuario['password'] ?>" > 
+            <input type="text" placeholder="Correo Electronico" readonly name="email" value="<?=$usuario['email'] ?>">  
         </div>
 
         <div class="contenedorImput">
             <label for="Precio">Telefono</label>
-            <input type="text" placeholder="Telefono" name="tel" value="<?=$usuario['telefono'] ?>" > 
+            <input type="text" placeholder="Telefono" readonly name="tel" value="<?=$usuario['telefono'] ?>" > 
         </div>
 
         <div class="contenedorImput">
             <label for="Precio">Localidad</label>
-            <input type="text" placeholder="Localidad" name="localidad" value="<?=$usuario['localidad'] ?>"> 
+            <input type="text" placeholder="Localidad" readonly name="localidad" value="<?=$usuario['localidad'] ?>"> 
         </div>
 
+        <div class="contenedorImput">
+        <label for="Seccion">Seccion</label>
+        <select class="select" name="rango" id="">
+            <option selectd disabled="">Selecciona una Seccion</option>
+            <option value="2">Administrador</option>
+            <option value="1">Usuario Normal</option>
+        </select>
+
+
+        <!-- <input type="text" placeholder="Seccion" name="seccion" value="<?= old('seccion') ?>" > -->
+    </div>
         <div class="botonImputProducto"><input class="botonCargarProducto" type="submit"  value="Guardar" > </div>
 
     </form>

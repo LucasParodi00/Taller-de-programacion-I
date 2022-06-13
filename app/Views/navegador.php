@@ -35,6 +35,10 @@
                     <li class="nav-item">
                       <a class="nav-link" href="<?php echo base_url('panelProductos') ?>">PanelProductos</a>
                     </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="<?php echo base_url('consultas') ?>">PanelConsultas</a>
+                    </li>
                   </ul>
                 </div>
 

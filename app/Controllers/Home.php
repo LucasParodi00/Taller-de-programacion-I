@@ -22,6 +22,7 @@ class Home extends BaseController
         echo view('head',$data );
         echo view('navegador');
         echo view('productos');
+        echo view('back/galeria/galeria');
         echo view('footer');
 
     }

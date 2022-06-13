@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 Use App\Models\Productos_model;
-  
+Use App\Models\Galeria_model;
 
 class Productos_Controllers extends baseController{
 
@@ -116,6 +116,9 @@ class Productos_Controllers extends baseController{
     public function mostrarProductos (){
 
         $productos = new Productos_model();
+        $galeria = new Galeria_model();
+
+        $data2 ['galeria'] = $galeria -> orderBy ('id','ASC')-> findAll();
         $datos['productos'] = $productos -> orderBy ('id', 'ASC') ->findAll();
 
         $data['titulo']='Vegetarian :: Productos';
@@ -123,8 +126,51 @@ class Productos_Controllers extends baseController{
         
         echo view('navegador');
         echo view('productos', $datos);
+        echo view('back/galeria/galeria',$data2);
         echo view('footer');       
 
         return $datos;
+    }
+
+
+    /* 
+    Galeria de fotos para la vista productos
+    */
+
+    public function index()
+    {
+        $data ['titulo']='Vegetarian :: Panel Productos';
+        echo view('head', $data);
+        return view('back/galeria/subir_imagen');
+    }
+
+    public function uploadImage()
+    {
+        $validated = $this->validate([
+            'image' => [
+                'uploaded[image]',
+                'mime_in[image,image/jpg,image/jpeg,image/gif,image/png]',
+                'max_size[image,4096]',
+            ],
+        ]);
+
+        if (!$validated) {
+            return view('upload', [
+                'validation' => $this->validator
+            ]);
+        }
+
+        $file = $this->request->getFile('image');
+        $name = $file->getRandomName();
+        $file->move('assets/uploads', $name);
+
+        $image = new Galeria_Model();
+        $image->save([
+            'nombre' => $name,
+            'nameImg' => $this -> request -> getPost('nombreImg'),
+        ]);
+
+        session()->setFlashdata('success', 'Se cargo la imagen correctamente');
+        return redirect()->to(site_url('cargarImagen'))->withInput()->with('previewImage', $name);   
     }
 }

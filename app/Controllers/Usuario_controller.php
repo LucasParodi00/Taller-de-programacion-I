@@ -57,8 +57,8 @@ class Usuario_controller extends baseController{
                     'perfil_id' => $this->request->getPost ('usuario'),
                     'email'  => $this->request->getPost('email'),
                     'telefono' => $this->request->getPost('tel'),
-                    'password'  => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
                     'localidad' => $this->request->getPost('localidad'),
+                    'rango' => $this->request->getPost('rango'),
         ];
         
         $id = $this->request->getVar('id');
@@ -165,7 +165,8 @@ class Usuario_controller extends baseController{
                     'email'  => $this->request->getPost('email'),
                     'telefono' => $this->request->getPost('tel'),
                     'password'  => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-                    'localidad' => $this->request->getPost('localidad'),   
+                    'localidad' => $this->request->getPost('localidad'), 
+                    
                 ]
             );
             //return view('back/panel');

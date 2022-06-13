@@ -1,7 +1,7 @@
 <div class="containerProductos">
     <div class="tituloIngresoProducto">
-        <h1>EDITAR PRODUCTO</h1>
-    </div>
+        <h1>EDITAR PRODUCTO</h1> 
+    </div> 
 
     <span class="spanProductos"></span>
 

@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 <div class="containerProductos">
     <div class="tituloIngresoProducto"> 
         <h1>INGRESO DE PRODUCTOS A LA BASE DE DATOS</h1>
@@ -20,7 +13,7 @@
         <input type="text" placeholder="Nombre del Producto" name="nombreProducto" value="<?= old('nombreProducto') ?>" >
     </div>
 
-    <div class="contenedorImput">
+    <div class="contenedorImput"> 
         <label for="Seccion">Seccion</label>
         <select class="select" name="seccion" id="">
             <option selectd disabled="">Selecciona una Seccion</option>
