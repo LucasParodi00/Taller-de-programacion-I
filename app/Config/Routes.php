@@ -87,6 +87,11 @@ $routes ->group("/", ['filter' => 'admi'], function($routes){
     $routes->get('consultas', 'Consulta_Controller::listarConsultas');
     $routes->get('contestados', 'Consulta_Controller::contestados');
     $routes->get("/contestarConsulta/(:num)", 'Consulta_Controller::borrar/$1');
+    $routes->get("/mostrarConsulta/(:num)", 'Consulta_Controller::editar/$1');
+    $routes->post('/actualizarConsulta', 'Consulta_Controller::actualizar');
+
+
+    
     
 });
 

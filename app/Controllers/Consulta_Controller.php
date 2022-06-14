@@ -52,10 +52,9 @@ class Consulta_Controller extends baseController{
         echo view('head',$data);
        
         $usuario = new Consulta_Model();
-        $datos['consultas']= $usuario -> orderBy('id','ASC') -> findAll();
+        $datos['consultas']= $usuario -> orderBy('id','DESC') -> findAll();
 
         return view('back/consultas/panelConsultas', $datos);
-
     }
 
     public function contestados(){
@@ -64,7 +63,7 @@ class Consulta_Controller extends baseController{
         echo view('head',$data);
        
         $usuario = new Consulta_Model();
-        $datos['consultas']= $usuario -> orderBy('id','ASC') -> findAll();
+        $datos['consultas']= $usuario -> orderBy('id','DESC') -> findAll();
 
         return view('back/consultas/panelContestados', $datos);
 
@@ -80,6 +79,39 @@ class Consulta_Controller extends baseController{
         ];
 
         $productos ->update($id,$datos);
+        return $this->response->redirect(site_url('consultas'));
+    }
+
+
+
+    public function editar ($id = null){
+
+        $data['titulo']='Vegetarian :: Consultas';
+        echo view('head',$data);
+        
+
+        $consultas = new Consulta_Model();
+        $datos['consultas']=$consultas->where('id',$id)->first();
+
+        return view('back/consultas/verConsultas', $datos);
+    }
+
+    public function actualizar (){
+
+        $data['titulo']='Vegetarian :: Consultas';
+        echo view('head',$data);
+        $consultas = new Consulta_Model();
+
+        $datos =[
+
+            'respuesta'        => $this ->request->getPost('respuesta'),
+            'contestado' => '1',
+        ];
+        
+        $id = $this->request->getVar('id');
+        $consultas ->update($id,$datos);
+
+
         return $this->response->redirect(site_url('consultas'));
     }
 

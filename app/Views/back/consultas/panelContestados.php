@@ -18,7 +18,7 @@
             <table class="table ">
                 <thead>
                 <tr>
-                    <th>#</th>
+                    <th>Fecha</th>
                     <th>Nombre y Apellido</th>
                     <th>Email</th>
                     <th>Telefono</th>
@@ -32,13 +32,17 @@
                     <?php foreach ($consultas as $c) : 
                         if($c['contestado']== '1'){ ?>
                         <tr>
-                            <td> <?= $c['id']?> </td>
+                            <td> <?= $c['fecha']?> </td>
                             <td> <?= $c['nombreCompleto'] ?> </td>
                             <td> <?= $c['email'] ?> </td>
                             <td> <?= $c['telefono'] ?> </td>
-                            <td> <?= $c['asunto'] ?> </td>
-                            <td> <?= $c['mensaje'] ?> </td>
-                        </tr>
+                            <td> <div style="width: 200px; overflow: hidden;"> <?= $c['asunto'] ?> </div> </td>
+                            <td> <div style="width: 450px; overflow: hidden;"><?= $c['mensaje'] ?></div> </td>
+
+                            <td> 
+                                <a class="btn btn-danger pt-0 text-center" id="botonEliminarP" href="<?=base_url('mostrarConsulta/'.$c['id']);?>" class="botonEliminar" type="button" >Ver Consulta</a>
+                            </td>
+                    </tr>
                     <?php } endforeach ?>    
                 </tbody>
             </table>
