@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use CodeIgniter\Model;
+use CodeIgniter\Model; 
 
 class Ventas_Model extends Model
 {
@@ -14,7 +14,7 @@ class Ventas_Model extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
 
-    protected $allowedFields = ['email_usuario', 'descripcion_venta', 'precio_total'];
+    protected $allowedFields = ['email_usuario', 'descripcion_venta', 'precio_total', 'usuario', 'cantidad', 'sub_total','precio'];
 
     protected $useTimestamps = false;
     protected $createdField  = 'fecha_venta';

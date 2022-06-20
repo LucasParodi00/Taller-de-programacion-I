@@ -48,8 +48,7 @@
                 </div>
 
                 <form class="d-flex" id="formulario-navegador">
-                  <input class="form-control me-2" type="text" placeholder="¿Que estas Buscando?">
-                  <button id="boton-buscar" class="btn btn-primary" type="button">Buscar</button>
+                 
                     
                     <div class="iniciar-sesion">
                       
@@ -75,18 +74,7 @@
                 </form>
               </div>
             </nav>
-
-
-
-
-
-
-
-
-
-
-            
-      
+     
             <?php elseif(session()->logueado == 'true' && session()->rango == '1'): ?>
           
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark"> 
@@ -105,6 +93,11 @@
                     <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('productos') ?>">Productos</a>
                     </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link" href="<?php echo base_url('cargarImagen') ?>">Galeria</a>
+                    </li>
+
                     <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('nosotros') ?>">Nosotros</a>
                     </li>
@@ -129,11 +122,10 @@
                    
                     
                     <div class="iniciar-sesion">
-                      <!-- <div class="nombreSesion" style="color: #ffffff"><?php echo $session -> nombreyapellido;?></div> -->
                       <li class="iconoSesion dropdown">
                       
                         <a class="flechaSesion " data-bs-toggle="dropdown" href="#">
-                          <div class="nombreSesion" style="color: #ffffff"><?php echo $session -> nombreyapellido;?></div>
+                          <div class="nombreSesion" style="color: #ffffff"><?php echo $session -> perfil_id;?></div>
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                           
                           <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -141,7 +133,7 @@
                           </svg>
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Administrador</a></li>
+                        
                           <li><a class="dropdown-item" href="<?php echo base_url('')?>/Usuario_controller/logout">Cerrar Sesion</a></li>
                       
                         </ul>

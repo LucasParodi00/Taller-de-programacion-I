@@ -1,9 +1,11 @@
 <?php
 namespace App\Controllers;
+
+use App\Database\Migrations\usuarios;
+use App\Models\Carrito_Model;
 use CodeIgniter\Controller;
 use App\Models\Productos_model;
 use App\Models\Usuarios_model;
-use App\Models\VentaDetalle_Model;
 use App\Models\Ventas_Model;
 
 
@@ -91,15 +93,29 @@ class Carrito_Controller extends BaseController{
         
         $cart = \Config\Services::cart();
         
-        $descripcion = '';
+        //$descripcion = '';
+        $productos= '';
+        $cantidad= '';
+        $subTotal= '';
+        $precio = '';
 
         foreach ($cart->contents() as $ventas){
-            $descripcion = $descripcion. "producto: " .$ventas ['name'] . " cantidad: " .$ventas ['qty'] . " SubTotal: ". $ventas['subtotal']   ."</br>";    
+            //$descripcion = $descripcion. " producto: " .$ventas ['name'] . " cantidad: " .$ventas ['qty'] . " SubTotal: ". $ventas['subtotal']   ."</br>";    
+
+            $productos = $productos. $ventas['name'] ."</br>";
+            $cantidad  = $cantidad. "x ".$ventas ['qty'] ."</br>";
+            $subTotal = $subTotal. "$ ".$ventas ['subtotal'] ."</br>";
+            $precio = $precio . "$ ".$ventas['price']. "</br>";
         }
 
         $datos = [
-            'descripcion_venta' => $descripcion,
+            //'descripcion_venta' => $descripcion,
+            'descripcion_venta' => $productos,
+            'cantidad'          => $cantidad,
+            'sub_total'          => $subTotal,
+            'precio'            => $precio,
             'email_usuario'     => session('email'),
+            'usuario'           => session('perfil_id'),
             'precio_total'      => $cart -> total(),
         ];
         
@@ -109,20 +125,37 @@ class Carrito_Controller extends BaseController{
         
     }
 
+    
     public function verVentas(){
-
+        
         $cart = \Config\Services::cart();
-
+        
         $ventasModel = new Ventas_Model();
+        
+        $ventas = array('ventas' => $ventasModel-> orderBY('id', 'DESC')-> findAll());
 
-        $ventas = array('ventas' => $ventasModel->findAll());
+     
+
         $data['titulo'] = 'Detalles de Ventas';
-
+        
         return view('head',$data). view('navegador') .view('back/carrito/verVentas', $ventas);
+        
+    }
+    
+    public function misVentas(){
+        
+        
+        $ventasModel = new Ventas_Model();    
+        $ventas = array('ventas' => $ventasModel->findAll());
 
+        $data['titulo'] = 'Mis Comrpas';
+        echo view('head',$data);
+        echo view('navegador');
+        
+        return view('back/carrito/misventas',$ventas). view('footer');
     }
 
-
+   
 
 }
 ?>

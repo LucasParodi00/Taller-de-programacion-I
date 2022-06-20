@@ -316,9 +316,7 @@ a:hover{
         flex-wrap: wrap;
     }
 
-    .precioProductoI{
-
-    }
+    
 }
 
 /*Otros Productos*/
@@ -1744,4 +1742,64 @@ h4{
         grid-gap:30px;
         padding: 35px 0px;
     }
+}
+
+
+/* PANEL DE COMPRAS POR USUARIO (MIS VENTAS)*/
+
+.contenedorVenta{
+    max-width: 1200px;
+    padding: 30px;
+    margin: 40px auto;
+    background-color: #ece9e9;
+    font-size: 20px;
+   
+
+}
+
+
+
+.cuerpoDescripcionCompra {
+    padding: 0 40px;
+
+}
+.cabezeraVentas h3{
+   text-align: center;
+   font-size: 50px;
+   font-family: 'Courier New', Courier, monospace;
+}
+
+#celdaProducto{
+    width: 600px;
+}
+
+#subTotal{
+    width: 100px;
+    justify-content: center;
+}
+
+.cabezeraMisProductos{
+    display: flex;
+    justify-content:space-between;
+    font-weight: bold;
+}
+
+.totalCompra{
+    margin-top: 15px;
+    padding: 10px;
+    text-align: right;
+    font-weight: bold;   
+        
+}
+
+#spanVentas{
+    height: 3px;
+    background: red;
+    display: block;
+}
+
+.unaVenta{
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 0 3px 2px ;
 }

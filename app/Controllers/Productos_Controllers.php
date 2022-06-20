@@ -24,7 +24,7 @@ class Productos_Controllers extends baseController{
         $datos['productos']= $productos -> orderBy('id','ASC') -> findAll();
         return view('back/panelProductosEliminados', $datos);
     }
-
+ 
     public function new (){
 
         $data['titulo']='Vegetarian :: Carga Productos';

@@ -112,7 +112,7 @@ $routes->post('cargarConsulta', 'Consulta_Controller::cargarConsulta');
 
 $routes->get('detallesVentas', 'Carrito_Controller::verVentas');
 
-
+$routes->get('misventas', 'Carrito_Controller::misVentas');
 
 /*
  * --------------------------------------------------------------------
